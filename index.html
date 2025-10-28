@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapExplorer - Plataforma de Mapas Interativa</title>
+    <meta name="author" content="Onivaldo Miquelino">  
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Estilos Customizados -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-map-marked-alt text-2xl text-blue-600"></i>
+                    <h1 class="text-xl font-bold text-gray-800">MapExplorer</h1>
+                </div>
+                
+                <!-- Menu Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#features" class="text-gray-600 hover:text-blue-600 font-medium">Recursos</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium">Sobre</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium">Contato</a>
+                </nav>
+            </div>
+        </div>
+        
+        <!-- Menu Mobile Expandido -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#features" class="block text-gray-600 hover:text-blue-600">Recursos</a>
+                <a href="#about" class="block text-gray-600 hover:text-blue-600">Sobre</a>
+                <a href="#contact" class="block text-gray-600 hover:text-blue-600">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Sidebar -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Controles do Mapa -->
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-sliders-h mr-2 text-blue-500"></i>
+                        Controles do Mapa
+                    </h2>
+                    
+                    <!-- Busca -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">
+                            Buscar Localização
+                        </label>
+                        <div class="flex space-x-2">
+                            <input 
+                                type="text" 
+                                id="search-input"
+                                placeholder="Digite um endereço..."
+                                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            >
+                            <button 
+                                id="search-btn"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                            >
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Geolocalização -->
+                    <div class="mb-4">
+                        <button 
+                            id="geolocation-btn"
+                            class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
+                        >
+                            <i class="fas fa-location-arrow"></i>
+                            <span>Minha Localização</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Camadas -->
+                    <div class="mb-4">
+                        <h3 class="text-sm font-medium text-gray-700 mb-2">Camadas do Mapa</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="map-layer" value="street" checked class="text-blue-600">
+                                <span class="text-sm text-gray-600">Ruas</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="map-layer" value="satellite" class="text-blue-600">
+                                <span class="text-sm text-gray-600">Satélite</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="radio" name="map-layer" value="topo" class="text-blue-600">
+                                <span class="text-sm text-gray-600">Topográfico</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Marcadores -->
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-700 mb-2">Marcadores</h3>
+                        <div class="space-y-2">
+                            <button 
+                                id="add-marker-btn"
+                                class="w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2"
+                            >
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Adicionar Marcador</span>
+                            </button>
+                            <button 
+                                id="clear-markers-btn"
+                                class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center justify-center space-x-2"
+                            >
+                                <i class="fas fa-trash"></i>
+                                <span>Limpar Marcadores</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Informações do Local -->
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-info-circle mr-2 text-green-500"></i>
+                        Informações do Local
+                    </h2>
+                    <div id="location-info" class="text-sm text-gray-600">
+                        <p class="text-center py-4">Clique em um local no mapa para ver informações</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mapa -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-4 border-b">
+                        <h2 class="text-lg font-semibold text-gray-800">
+                            <i class="fas fa-globe-americas mr-2 text-blue-500"></i>
+                            Mapa Interativo
+                        </h2>
+                    </div>
+                    <div id="map" class="h-96 md:h-[500px] lg:h-[600px] w-full"></div>
+                </div>
+                
+                <!-- Estatísticas -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                        <div class="text-2xl font-bold text-blue-600" id="markers-count">0</div>
+                        <div class="text-sm text-gray-600">Marcadores</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                        <div class="text-2xl font-bold text-green-600" id="distance-traveled">0 km</div>
+                        <div class="text-sm text-gray-600">Distância Percorrida</div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center">
+                        <div class="text-2xl font-bold text-purple-600" id="areas-marked">0</div>
+                        <div class="text-sm text-gray-600">Áreas Marcadas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">MapExplorer</h3>
+                    <p class="text-gray-400">
+                        Plataforma interativa de exploração de mapas usando Leaflet.js e OpenStreetMap.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tecnologias</h3>
+                    <ul class="text-gray-400 space-y-2">
+                        <li>Leaflet.js</li>
+                        <li>OpenStreetMap</li>
+                        <li>Tailwind CSS</li>
+                        <li>JavaScript ES6+</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <div class="text-gray-400 space-y-2">
+                        <p>Email: contato@mapexplorer.com</p>
+                        <p>GitHub: github.com/seu-usuario</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2024 MapExplorer. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>    

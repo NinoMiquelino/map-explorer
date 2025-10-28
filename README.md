@@ -282,12 +282,12 @@ Tile Servers
 
 Navegadores Suportados
 
-Navegador Versão Suporte
-Chrome 60+ ✅ Completo
-Firefox 55+ ✅ Completo
-Safari 12+ ✅ Completo
-Edge 79+ ✅ Completo
-Mobile Safari 12+ ✅ Completo
+Navegador Versão Suporte<br>
+Chrome 60+ ✅ Completo<br>
+Firefox 55+ ✅ Completo<br>
+Safari 12+ ✅ Completo<br>
+Edge 79+ ✅ Completo<br>
+Mobile Safari 12+ ✅ Completo<br>
 Chrome Mobile 60+ ✅ Completo
 
 Funcionalidades por Dispositivo

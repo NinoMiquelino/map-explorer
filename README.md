@@ -295,7 +295,7 @@ Funcionalidades por Dispositivo
 Funcionalidade Desktop Mobile Tablet<br>
 Mapa Interativo ✅ ✅ ✅<br>
 Geolocalização ✅ ✅ ✅<br>
-Busca por Endereço ✅ ✅ ✅<br
+Busca por Endereço ✅ ✅ ✅<br>
 Marcadores ✅ ✅ ✅<br>
 Múltiplas Camadas ✅ ✅ ✅<br>
 Touch Gestures ⚠️ ✅ ✅
@@ -330,16 +330,6 @@ mapManager.map // Instância do Leaflet
 mapManager.markers // Array de marcadores
 ```
 
-🤝 Contribuindo
-
-Contribuições são bem-vindas! Siga estos passos:
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (git checkout -b feature/AmazingFeature)
-3. Commit suas mudanças (git commit -m 'Add some AmazingFeature')
-4. Push para a branch (git push origin feature/AmazingFeature)
-5. Abra um Pull Request
-
 📋 Padrões de Código
 
 · Use JavaScript ES6+ moderno
@@ -366,12 +356,6 @@ Próximas Funcionalidades
 · OpenStreetMap pelos dados de mapa abertos
 · Tailwind CSS pelo framework CSS
 · Font Awesome pelos ícones
-
----
-
-⭐ Se este projeto foi útil, deixe uma estrela no repositório!
-
-https://api.star-history.com/svg?repos=NinoMiquelino/map-explorer&type=Date
 
 ---
 

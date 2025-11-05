@@ -167,7 +167,7 @@ jobs:
 Opção 2: Netlify
 
 1. Conecte seu repositório ao Netlify
-2. Configurações de build:
+2. Configurações de build:<br>
    · Build Command: (deixe vazio)<br>
    · Publish Directory: ./
 3. Deploy automático a cada push

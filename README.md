@@ -168,7 +168,7 @@ Opção 2: Netlify
 
 1. Conecte seu repositório ao Netlify
 2. Configurações de build:
-   · Build Command: (deixe vazio)
+   · Build Command: (deixe vazio)<br>
    · Publish Directory: ./
 3. Deploy automático a cada push
 
@@ -216,14 +216,14 @@ Opção 3: Vercel
 
 📌 Gerenciando Marcadores
 
-· Adicionar: Clique no mapa ou use o botão "Adicionar Marcador"
-· Remover: Clique no marcador → "Remover"
+· Adicionar: Clique no mapa ou use o botão "Adicionar Marcador"<br>
+· Remover: Clique no marcador → "Remover"<br>
 · Limpar Todos: Use o botão "Limpar Marcadores"
 
 🎨 Camadas do Mapa
 
-· Ruas: Vista padrão do OpenStreetMap
-· Satélite: Imagens de satélite (ArcGIS)
+· Ruas: Vista padrão do OpenStreetMap<br>
+· Satélite: Imagens de satélite (ArcGIS)<br>
 · Topográfico: Mapa topográfico (OpenTopoMap)
 
 🔧 Personalização
@@ -274,8 +274,8 @@ https://nominatim.openstreetmap.org/reverse?format=json&lat={lat}&lon={lng}
 
 Tile Servers
 
-· OpenStreetMap: https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
-· ArcGIS Satellite: https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+· OpenStreetMap: https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png<br>
+· ArcGIS Satellite: https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}<br>
 · OpenTopoMap: https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png
 
 📱 Compatibilidade
@@ -306,20 +306,20 @@ Problemas Comuns
 
 Geolocalização não funciona
 
-· Verifique as permissões do navegador
-· Certifique-se de que HTTPS está habilitado (em produção)
+· Verifique as permissões do navegador<br>
+· Certifique-se de que HTTPS está habilitado (em produção)<br>
 · Teste em diferentes navegadores
 
 Mapa não carrega
 
-· Verifique conexão com internet
-· Confirme se os tiles estão acessíveis
+· Verifique conexão com internet<br>
+· Confirme se os tiles estão acessíveis<br>
 · Cheque o console do navegador para erros
 
 Busca não retorna resultados
 
-· API Nominatim pode estar temporariamente indisponível
-· Verifique a formatação do endereço
+· API Nominatim pode estar temporariamente indisponível<br>
+· Verifique a formatação do endereço<br>
 · Tente termos de busca mais específicos
 
 Debug no Console
@@ -332,29 +332,29 @@ mapManager.markers // Array de marcadores
 
 📋 Padrões de Código
 
-· Use JavaScript ES6+ moderno
-· Siga as convenções do Leaflet.js
-· Mantenha a responsividade
+· Use JavaScript ES6+ moderno<br>
+· Siga as convenções do Leaflet.js<br>
+· Mantenha a responsividade<br>
 · Documente novas funcionalidades
 
 🚀 Roadmap
 
 Próximas Funcionalidades
 
-· Rotas e Direções - Calculadora de rotas
-· Áreas e Polígonos - Desenho de áreas no mapa
-· Export de Dados - Salvar marcadores em JSON/GPX
-· Mapas Temáticos - Dados demográficos e estatísticos
-· Colaboração - Compartilhamento de mapas em tempo real
-· Offline Support - Cache de tiles para uso offline
-· 3D View - Visualização em três dimensões
+· Rotas e Direções - Calculadora de rotas<br>
+· Áreas e Polígonos - Desenho de áreas no mapa<br>
+· Export de Dados - Salvar marcadores em JSON/GPX<br>
+· Mapas Temáticos - Dados demográficos e estatísticos<br>
+· Colaboração - Compartilhamento de mapas em tempo real<br>
+· Offline Support - Cache de tiles para uso offline<br>
+· 3D View - Visualização em três dimensões<br>
 · Historical Maps - Mapas históricos e comparativos
 
 🙏 Agradecimentos
 
-· Leaflet.js pela incrível biblioteca de mapas
-· OpenStreetMap pelos dados de mapa abertos
-· Tailwind CSS pelo framework CSS
+· Leaflet.js pela incrível biblioteca de mapas<br>
+· OpenStreetMap pelos dados de mapa abertos<br>
+· Tailwind CSS pelo framework CSS<br>
 · Font Awesome pelos ícones
 
 ---
